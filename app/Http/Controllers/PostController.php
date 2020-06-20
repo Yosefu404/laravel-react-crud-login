@@ -33,7 +33,7 @@ class PostController extends Controller
         ]);
         $post = new Post([
             'title' => $request->title,
-            'despription' => $request->description,
+            'description' => $request->description,
         ]);
         $post-> save();
            return response() -> json([
