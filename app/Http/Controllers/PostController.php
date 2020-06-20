@@ -36,7 +36,7 @@ class PostController extends Controller
             'description' => $request->description,
         ]);
         $post-> save();
-           return response() -> json([
+           return response()-> json([
             'data' => 'Post created!',
         ]);
     }
@@ -49,7 +49,7 @@ class PostController extends Controller
      */
     public function edit($id)
     {
-        return new PostResource(Post::findOrFail($aid));
+        return new PostResource(Post::findOrFail($id));
     }
 
 
@@ -68,10 +68,10 @@ class PostController extends Controller
         ]);
         $post = Post::findOrFail($id);
         $post->title = $request->title;
-        $post->despription = $request->description;
+        $post->description = $request->description;
         $post-> save();
 
-           return response() -> json([
+           return response()-> json([
             'data' => 'Post updated!',
         ]);
     }
@@ -86,6 +86,7 @@ class PostController extends Controller
     {
         $post = Post::findOrFail($id);
         $post-> delete();
+
         return response()->json([
             'data' => 'Post deleted!'
         ]);
